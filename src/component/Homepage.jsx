@@ -6,14 +6,9 @@ function Homepage() {
     let navigate = useNavigate()
     const [posts, setPosts] = useState();
     useEffect(() => {
-        axios
-            .get("http://interviewapi.stgbuild.com/getQuizData")
-            .then((response) => {
-                setPosts(response.data.tests);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        axios.get("https://raw.githubusercontent.com/sampee100/API/main/interviewApp.json")
+        .then((response) => {setPosts(response.data.tests);})
+        .catch((err) => {console.log(err);});
     }, []);
     
     if(posts)
@@ -29,7 +24,7 @@ function Homepage() {
                     <td style={{padding:'15px'}}>{prev.name}</td>
                     <td style={{padding:'15px',textIndent:"30px"}}>{prev.questions.length}</td>
                     <td style={{padding:'15px'}}><button className="btn btn-success" onClick={() => {
-                        navigate(`/${prev._id}/${prev.questions[0]._id}`, { state: {state: prev,
+                        navigate(`/test/${prev._id}/${prev.questions[0]._id}`, { state: {state: prev,
                             indexQ:0 } }) }}>Start Test</button></td>
                 </tr>
             </tbody>

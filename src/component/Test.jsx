@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { useLocation, useNavigate,useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Test() {
-    let {qid}=useParams();
-    let {id}=useParams();
     let navigate = useNavigate();
     const location = useLocation()
     // console.log(location.state)
@@ -19,16 +17,6 @@ function Test() {
     // console.log(testData)
     const prev=testData
     let Qlength = testData.questions.length
-    const newIndex=0;
-    // for(let a=0;a<Qlength;a++) {
-     
-    //     if(qid==testData.questions[a]._id){
-    //         testData.indexOf(testData.questions[a])
-    //         // newIndex=testData.indexOf(testData.questions[a]._id)
-    //      }
-    // }
-
-// console.log(newIndex)
 
     const [index, setIndex] = useState(location.state.indexQ)
     const localArray = JSON.parse(localStorage.getItem("ans"))
@@ -36,10 +24,7 @@ function Test() {
 
     React.useEffect(() => {
         localStorage.setItem("ans", JSON.stringify(ansArray))
-       
-
     })
-    // console.log(index)
     const cuurentQueId=testData.questions[index]._id
     function optionFun() {
         let radio = false
@@ -101,7 +86,7 @@ function Test() {
 
                             {(index > 0) && <button
                                 onClick={() => { setIndex(index - 1);
-                                    navigate(`/${testData._id}/${cuurentQueId}` ,{ state: {state: prev,indexQ:index+1 } })
+                                    navigate(`/test/${testData._id}/${cuurentQueId}` ,{ state: {state: prev,indexQ:index+1 } })
                                  }}
                                 className="btn btn-success"
                             >Prev
@@ -109,7 +94,7 @@ function Test() {
 
                             {(index < Qlength - 1) && <button
                                 onClick={() =>{ setIndex(index + 1);
-                                    navigate(`/${testData._id}/${cuurentQueId}` ,{ state: {state: prev,indexQ:index+1 } })}}
+                                    navigate(`/test/${testData._id}/${cuurentQueId}` ,{ state: {state: prev,indexQ:index+1 } })}}
                                 className="btn btn-success"
                                 style={{marginLeft:'85%'}}
                                 >Next
