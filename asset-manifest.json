@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/InterviewPortal/static/js/main.7d1425a8.js",
+    "index.html": "/InterviewPortal/index.html",
+    "main.7d1425a8.js.map": "/InterviewPortal/static/js/main.7d1425a8.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.7d1425a8.js"
+  ]
+}
