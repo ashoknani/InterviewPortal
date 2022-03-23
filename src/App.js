@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <h1 className="container mt-4 mb-2">My Interview Portal</h1>
       <Routes>
-        <Route path={"/"} element={<Homepage/>} />
+        <Route path={"/root"} element={<Homepage/>} />
         <Route path={"/test/:id/:qid"} element={<Test/>} />
         <Route path={"/finish"} element={<Finish/>} />
       </Routes>
